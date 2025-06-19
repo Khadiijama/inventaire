@@ -1,4 +1,5 @@
 # 💄 **Pinky Touch** ✨
+
 ## ***🌸 Description du Projet :***
 Pinky Touch est une application web élégante dédiée au maquillage et aux cosmétiques. Ce site vitrine moderne présente une collection exclusive de produits de beauté haut de gamme avec un système de gestion d'inventaire intégré. L'interface utilisateur est conçue avec des animations fluides et un design contemporain pour offrir une expérience utilisateur exceptionnelle.
 
@@ -21,19 +22,19 @@ Pinky Touch est une application web élégante dédiée au maquillage et aux cos
 
 ## ***📷 Captures d'Écran :***
 <p align="center">
-  <img src="https://via.placeholder.com/800x400/ff6b9d/ffffff?text=Page+d%27Accueil+Pinky+Touch" alt="Page d'accueil"/>
+  <img src="https://github.com/BouglaceMarouane/Student-Average-Calculator/blob/84b92b2ff067243d22098307948e52867eeb5fd0/img/00ee8d26-06af-40e2-b2a7-e88a6ad81d0f.jpeg" alt="Page d'accueil"/>
   <br>
   <em>Page d'Accueil : Interface élégante avec dégradés roses et animations</em>
 </p><br>
 
 <p align="center">
-  <img src="https://via.placeholder.com/800x400/ff1493/ffffff?text=Section+Produits" alt="Section produits"/>
+  <img src="https://github.com/BouglaceMarouane/Student-Average-Calculator/blob/84b92b2ff067243d22098307948e52867eeb5fd0/img/533b420c-57bc-41c7-823e-efe8a242d887.jpeg" alt="Section produits"/>
   <br>
   <em>Section Produits : Présentation des produits avec cartes interactives</em>
 </p><br>
 
 <p align="center">
-  <img src="https://via.placeholder.com/800x400/d81b60/ffffff?text=Gestionnaire+d%27Inventaire" alt="Gestionnaire d'inventaire"/>
+  <img src="https://github.com/BouglaceMarouane/Student-Average-Calculator/blob/84b92b2ff067243d22098307948e52867eeb5fd0/img/5140ad66-6718-4116-bd89-6e37911d3295.jpeg" alt="Gestionnaire d'inventaire"/>
   <br>
   <em>Gestionnaire d'Inventaire : Interface pour gérer les produits facilement</em>
 </p><br>
@@ -99,11 +100,6 @@ pinky-touch/
 ## ***💾 Stockage des Données :***
 Les produits sont sauvegardés automatiquement dans le `localStorage` du navigateur, garantissant la persistance des données entre les sessions.
 
-**Produits par défaut :**
-- Rouge à lèvres Rose Éclat - 24.99€
-- Fond de teint Naturel - 32.50€
-- Mascara Volume Intense - 19.90€
-
 ## ***🤝 Contribution :***
 Les contributions à ce projet sont les bienvenues ! Si vous avez des suggestions, des améliorations ou des corrections de bugs, n'hésitez pas à soumettre une pull request. Assurez-vous de suivre les conventions de codage et de maintenir un style cohérent.
 
@@ -121,9 +117,9 @@ Si vous rencontrez des problèmes ou souhaitez demander une nouvelle fonctionnal
 Si vous aimez ce projet, n'oubliez pas de laisser une ⭐ sur GitHub. Merci et bon développement ! 🚀
 
 ## ***📬 Restez en Contact :***
-- 📧 Email: hello@pinkytouch.com
-- 🌐 GitHub: [Votre Profil GitHub](https://github.com/votre-nom-utilisateur)
-- 💼 LinkedIn: [Votre Profil LinkedIn](https://www.linkedin.com/in/votre-profil/)
+- 📧 Email: maazkhadija799@gmail.com
+- 🌐 GitHub: [Profil GitHub](https://github.com/Khadiijama)
+- 💼 LinkedIn: [Profil LinkedIn](https://www.linkedin.com/in/khadija-maaz-80b5721a8/)
 
 ---
 
