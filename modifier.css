@@ -1,0 +1,55 @@
+/* Style général */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ff69b4, #ff1493);
+    color: white;
+    text-align: center;
+}
+
+/* Conteneur du formulaire */
+.container {
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: #333;
+    margin: 50px auto;
+}
+
+/* Champs du formulaire */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ff1493;
+    border-radius: 5px;
+}
+
+/* Boutons */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #ff1493;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff69b4;
+}
+
+/* Lien Annuler */
+a {
+    display: block;
+    margin-top: 10px;
+    color: #ff1493;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
