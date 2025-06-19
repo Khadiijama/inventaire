@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquillage - Pinky Touch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8a80 50%, #ffb3d9 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(255, 107, 157, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b9d, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ff1493;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #ff6b9d, #ff1493);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8a80 50%, #ffb3d9 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="makeup" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23makeup)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: slideUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            animation: slideUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffeef3 0%, #fff5f8 100%);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ff6b9d, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 107, 157, 0.3);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            color: #ff6b9d;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .product-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Interactive Product Manager */
+        .product-manager {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff1493 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .manager-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .input-field {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .products-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-header {
+            background: linear-gradient(45deg, #ff6b9d, #ff1493);
+            color: white;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            font-weight: bold;
+        }
+
+        .product-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .product-row:hover {
+            background: #ffeef3;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .btn-edit {
+            background: #ffc107;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit:hover, .btn-delete:hover {
+            transform: scale(1.1);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ffeef3 0%, #fff5f8 100%);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.1);
+            position: relative;
+            text-align: center;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #ff6b9d;
+            opacity: 0.3;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #ff1493 0%, #d81b60 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .table-header, .product-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">✨ Pinky Touch</div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#products">Produits</a></li>
+                <li><a href="#manager">Gérer</a></li>
+                <li><a href="#testimonials">Avis</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>✨ Sublimez votre beauté avec Pinky Touch</h1>
+            <p>Découvrez notre collection exclusive de maquillage haut de gamme</p>
+            <a href="#products" class="cta-button">
+                <i class="fas fa-sparkles"></i> Découvrir nos produits
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Nos Produits Phares</h2>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <i class="fas fa-palette product-icon"></i>
+                    <h3>Fond de Teint</h3>
+                    <p>Texture légère et couvrance parfaite pour un teint naturel et lumineux toute la journée.</p>
+                </div>
+                <div class="product-card fade-in">
+                    <i class="fas fa-kiss-wink-heart product-icon"></i>
+                    <h3>Rouge à Lèvres</h3>
+                    <p>Des couleurs éclatantes et une tenue longue durée pour toutes vos occasions spéciales.</p>
+                </div>
+                <div class="product-card fade-in">
+                    <i class="fas fa-eye product-icon"></i>
+                    <h3>Mascara</h3>
+                    <p>Volume et intensité exceptionnels pour un regard captivant et des cils parfaitement définis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Manager -->
+    <section id="manager" class="product-manager">
+        <div class="manager-container">
+            <h2>🛍️ Gérer votre inventaire</h2>
+            <p>Ajoutez et gérez vos produits facilement</p>
+            
+            <div class="input-group">
+                <input type="text" id="nomProduit" class="input-field" placeholder="Nom du produit">
+                <input type="number" id="prixProduit" class="input-field" placeholder="Prix (€)">
+                <input type="hidden" id="produitIndex">
+                <button onclick="enregistrerProduit()" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Ajouter
+                </button>
+            </div>
+
+            <div class="products-table">
+                <div class="table-header">
+                    <div>Produit</div>
+                    <div>Prix (€)</div>
+                    <div>Actions</div>
+                </div>
+                <div id="tableProduits">
+                    <!-- Products will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">💬 Ce que disent nos clients</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Les rouges à lèvres sont incroyables ! La tenue est parfaite et les couleurs sont magnifiques."</p>
+                    <strong>- Sophie M.</strong>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Le fond de teint donne un effet naturel parfait. Je le recommande vivement !"</p>
+                    <strong>- Camille L.</strong>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Service client exceptionnel et produits de qualité. Je suis une cliente fidèle !"</p>
+                    <strong>- Marie D.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>✨ Pinky Touch</h3>
+                    <p>Votre beauté naturelle sublimée</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> hello@pinkytouch.com</p>
+                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Informations</h3>
+                    <p>Produits 100% vegan</p>
+                    <p>Cruelty-free</p>
+                    <p>Livraison gratuite dès 50€</p>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p>© 2025 Pinky Touch - Tous droits réservés. ✨</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Produit sauvegardé en mémoire et localStorage
+        let produits = [];
+
+        // Chargement au démarrage
+        document.addEventListener("DOMContentLoaded", function () {
+            const savedProduits = localStorage.getItem("produits");
+            if (savedProduits) {
+                produits = JSON.parse(savedProduits);
+            } else {
+                // Valeurs par défaut
+                produits = [
+                    { nom: "Rouge à lèvres Rose Éclat", prix: "24.99" },
+                    { nom: "Fond de teint Naturel", prix: "32.50" },
+                    { nom: "Mascara Volume Intense", prix: "19.90" }
+                ];
+            }
+            afficherProduits();
+            animateOnScroll();
+        });
+
+        function sauvegarderProduits() {
+            localStorage.setItem("produits", JSON.stringify(produits));
+        }
+
+        function afficherProduits() {
+            let table = document.getElementById("tableProduits");
+            table.innerHTML = "";
+
+            produits.forEach((produit, index) => {
+                let row = document.createElement("div");
+                row.className = "product-row";
+
+                row.innerHTML = `
+                    <div>${produit.nom}</div>
+                    <div>${produit.prix}€</div>
+                    <div class="action-buttons">
+                        <button class="btn-edit" onclick="modifierProduit(${index})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-delete" onclick="supprimerProduit(${index})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+
+                table.appendChild(row);
+            });
+        }
+
+        function enregistrerProduit() {
+            let nom = document.getElementById("nomProduit").value.trim();
+            let prix = document.getElementById("prixProduit").value.trim();
+            let index = document.getElementById("produitIndex").value;
+
+            if (nom && prix) {
+                if (index === "") {
+                    // Ajouter
+                    produits.push({ nom, prix });
+                    showNotification("Produit ajouté avec succès !", "success");
+                } else {
+                    // Modifier
+                    produits[index] = { nom, prix };
+                    showNotification("Produit modifié avec succès !", "success");
+                }
+
+                // Réinitialisation du formulaire
+                document.getElementById("nomProduit").value = "";
+                document.getElementById("prixProduit").value = "";
+                document.getElementById("produitIndex").value = "";
+
+                sauvegarderProduits();
+                afficherProduits();
+            } else {
+                showNotification("Veuillez remplir tous les champs", "error");
+            }
+        }
+
+        function modifierProduit(index) {
+            const produit = produits[index];
+            document.getElementById("nomProduit").value = produit.nom;
+            document.getElementById("prixProduit").value = produit.prix;
+            document.getElementById("produitIndex").value = index;
+            document.getElementById("nomProduit").focus();
+        }
+
+        function supprimerProduit(index) {
+            if (confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
+                produits.splice(index, 1);
+                sauvegarderProduits();
+                afficherProduits();
+                showNotification("Produit supprimé", "success");
+            }
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement("div");
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                padding: 15px 25px;
+                border-radius: 10px;
+                color: white;
+                font-weight: bold;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+                background: ${type === 'success' ? 'linear-gradient(45deg, #4CAF50, #45a049)' : 'linear-gradient(45deg, #f44336, #d32f2f)'};
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            `;
+
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = "slideOut 0.3s ease";
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        function animateOnScroll() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
